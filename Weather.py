@@ -20,7 +20,7 @@ while x == 1:
 	#Make web request to the url(with url value attached) with the Mashape KEY and the content type
 	response = unirest.get("https://george-vustrey-weather.p.mashape.com/api.php?location=" + UserValue,
   	headers={
-  	  "X-Mashape-Key": "OhsfFL6TbrmshiTM9x9bpp7ySvSfp1Bjbiojsnj2DWPU7n2u6Z",
+  	  "X-Mashape-Key": "",
    	 "Accept": "application/json"
   	}
 		)
