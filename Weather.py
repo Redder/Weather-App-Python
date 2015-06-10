@@ -1,11 +1,28 @@
+'''
+Name: Weather Application
+Author: Redder04
+Extra Requirements: Unirest, Mashape Key
+Unirest: http://unirest.io/
+Mashape: https://www.mashape.com/
+
+Description: This application will connect to a Mashape Weather API. The user will 
+supply a City or State (I might add GPS Capabilites later) and send the request. The 
+API will return JSON data with the weather data. 
+
+Github: https://github.com/Redder/Weather-App-Python
+
+P.S: I tried to heavily code my project, any questions feel free to post on Github.
+
+P.S*2: Any "clear" commands can be changed to "cls" for windows
+'''
 #Import all the libraries we need
 import unirest
 import json
 import os
-#Assign X to 1 for our loop (We can use a While True Loop too)
+#Assign X to 1 for our loop (We can use a While True Loop too, and break in the end, but I used x =1 loop and was to lazy to change it, AS long as it works, BUT! Is the while true loop more efficient?)
 x = 1
 #Prints Welcome Screen
-os.system('cls')
+os.system('clear')
 print('================================')
 print('Welcome to the Weather App!')
 print('Press Enter to Continue!')
@@ -20,7 +37,7 @@ while x == 1:
 	#Make web request to the url(with url value attached) with the Mashape KEY and the content type
 	response = unirest.get("https://george-vustrey-weather.p.mashape.com/api.php?location=" + UserValue,
   	headers={
-  	  "X-Mashape-Key": "",
+  	  "X-Mashape-Key": "Mashape Key goes Here!!!",
    	 "Accept": "application/json"
   	}
 		)
@@ -112,16 +129,16 @@ while x == 1:
 		raw_input('')
 
 		pass
-	#If the data does not exist, it may be due to the user inputting something thats not a city or state
+	#If the data does not exist, it may be due to the user inputting something thats not a city or state, OR any error with the API
 	except KeyError, e:
-		#Clear Screen and show error message we get from API
-		os.system('cls')
+		#Clear Screen and show error message that we get from the API
+		os.system('clear')
 		print('Error ' + str(data[0]['code']) + ':' + ' ' + data[0]['message'])
 		raw_input('')
 
 		
 	#Clear Screen and ask user if they want to quit or perform a search again
-	os.system('cls')
+	os.system('clear')
 	print('Would you like to search again? or Quit?')
 	print('1: Search again')
 	print('2: Quit')
